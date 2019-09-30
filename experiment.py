@@ -41,6 +41,14 @@ print("Accuracy:", metrics.accuracy_score(test_target_set, iris_result))
 print(metrics.confusion_matrix(test_target_set, iris_result))
 print(metrics.classification_report(test_target_set, iris_result))
 
+accuracy_set = []
+
+for i in range(1, 50):
+    result_set = var.classify(i, train_target_set, test_data_set, train_data_set)
+    accuracy_set.append((metrics.accuracy_score(test_target_set, result_set)) * 100)
+
+[print("%.2f" % item) for item in accuracy_set]
+
 ######################################################
 
 scaler = StandardScaler()
